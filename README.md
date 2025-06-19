@@ -1,4 +1,4 @@
-<h1 align="center">👋 Hola, soy Asaed Reyes Medina</h1>
+<h1 align="center">Asaed Reyes Medina</h1>
 
 <p align="center">
   🧑‍💻 Full Stack Developer | React | TypeScript | Microfrontends | NestJS | ElysiaJS <br />
@@ -45,7 +45,3 @@
 [![Email](https://img.shields.io/badge/Email-asaedreyesmedina@correo.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:asaedreyesmedina@correo.com)
 
 </div>
-
----
-
-> 🎯 *"El código es como un buen juego: se trata tanto del proceso como del resultado."*
