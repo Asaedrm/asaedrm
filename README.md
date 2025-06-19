@@ -1,54 +1,51 @@
-# React + TypeScript + Vite
+<h1 align="center">👋 Hola, soy Asaed Reyes Medina</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  🧑‍💻 Full Stack Developer | React | TypeScript | Microfrontends | NestJS | ElysiaJS <br />
+  🎮 Amante del gaming, la arquitectura limpia y el diseño de componentes <br />
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🧠 Tecnologías y herramientas
 
-## Expanding the ESLint configuration
+<div align="center">
+  
+![React](https://img.shields.io/badge/-React-20232A?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript)
+![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Storybook](https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white)
+![NestJS](https://img.shields.io/badge/-NestJS-E0234E?style=for-the-badge&logo=nestjs)
+![Bun](https://img.shields.io/badge/-Bun-000000?style=for-the-badge&logo=bun&logoColor=white)
+![ElysiaJS](https://img.shields.io/badge/-ElysiaJS-61DAFB?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-336791?style=for-the-badge&logo=postgresql)
+![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?style=for-the-badge&logo=mongodb)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+</div>
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 📊 GitHub Stats
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<div align="center">
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+![Asaed's GitHub Stats](https://github-readme-stats.vercel.app/api?username=asaedrm&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=asaedrm&layout=compact&theme=radical&hide_border=true)
+
+</div>
+
+
+### 📫 Conecta conmigo
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-asaed.dev-000?style=for-the-badge&logo=vercel)](https://asaed.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-asaed-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/asaedreyesmedina)
+[![Email](https://img.shields.io/badge/Email-asaedreyesmedina@correo.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:asaedreyesmedina@correo.com)
+
+</div>
+
+---
+
+> 🎯 *"El código es como un buen juego: se trata tanto del proceso como del resultado."*
