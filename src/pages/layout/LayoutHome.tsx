@@ -33,11 +33,11 @@ const LayoutHome = () => {
         </Card>
       </div>
       <div className="col-span-6 ">
-        <Card className={`w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white hover:bg-gradient-to-r hover:from-black  hover:via-neutral-950  hover:to-neutral-900 ${styleTransitionCard.backend}`}>
+        <Card className={`w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white hover:bg-gradient-to-r hover:from-black  hover:via-gray-950  hover:to-sky-900 ${styleTransitionCard.backend}`}>
           <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
             Full Stack Developer
           </h3>
-          <h1 onClick={() => handleSpecialization("backend")} className="scroll-m-20 text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-neutral-800 hover:to-neutral-100 hover:text-transparent hover:bg-clip-text">
+          <h1 onClick={() => handleSpecialization("backend")} className="scroll-m-20 text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 hover:text-transparent hover:bg-clip-text">
             Backend
           </h1>
         </Card>
