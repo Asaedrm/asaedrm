@@ -1,27 +1,47 @@
 import { Card } from "@/components/ui/card"
 import { useEffect, useState } from "react"
+import clsx from "clsx"
 
 const LayoutHome = () => {
-  const [specialization, setSpecialization] = useState<string>("frontend")
+  const [specialization, setSpecialization] = useState<string>("")
   const [hovered, setHovered] = useState<"frontend" | "backend" | null>(null)
+  const [isFrontendHidden, setIsFrontendHidden] = useState(false)
+  const [isBackendHidden, setIsBackendHidden] = useState(false)
 
-  const handleSpecialization = (specializationSelected: string) => {
-    setSpecialization(specializationSelected)
+  const handleSpecialization = (selected: string) => {
+    setSpecialization(selected)
+
+    // Ocultar el opuesto después de la animación
+    if (selected === "frontend") {
+      setTimeout(() => setIsBackendHidden(true), 500)
+    } else {
+      setTimeout(() => setIsFrontendHidden(true), 500)
+    }
   }
 
-  useEffect(() => { }, [specialization])
+  // Mostrar de nuevo si no hay selección (opcional)
+  useEffect(() => {
+    if (!specialization) {
+      setIsFrontendHidden(false)
+      setIsBackendHidden(false)
+    }
+  }, [specialization])
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 p-4 h-screen bg-black">
       {/* FRONTEND WRAPPER */}
       <div
-        className={`col-span-6 w-full h-full relative transition-all duration-300 ${hovered === "backend" ? "blur-sm" : ""}`}
+        className={clsx(
+          isFrontendHidden && "hidden",
+          specialization === "backend" ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100",
+          specialization === "frontend" ? "col-span-12" : "col-span-6",
+          "w-full h-full relative transition-all duration-500 ease-in-out",
+          hovered === "backend" && "blur-sm"
+        )}
       >
-        {/* Fondo de gradiente desenfocado solo cuando se pasa el cursor por frontend */}
         {hovered === "frontend" && (
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-pink-500 blur-sm z-0" />
         )}
-
         <Card className="relative z-10 w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white">
           <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
             Asaed Reyes Medina
@@ -39,7 +59,13 @@ const LayoutHome = () => {
 
       {/* BACKEND WRAPPER */}
       <div
-        className={`col-span-6 w-full h-full relative transition-all duration-300 ${hovered === "frontend" ? "blur-sm" : ""}`}
+        className={clsx(
+          isBackendHidden && "hidden",
+          specialization === "frontend" ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100",
+          specialization === "backend" ? "col-span-12" : "col-span-6",
+          "w-full h-full relative transition-all duration-500 ease-in-out",
+          hovered === "frontend" && "blur-sm"
+        )}
       >
         <Card className="relative z-10 w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white">
           <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
