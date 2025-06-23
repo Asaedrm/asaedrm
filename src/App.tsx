@@ -13,7 +13,9 @@ function App() {
   }, [])
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className={`${isLoading ? "cursor-progress" : "cursor-default"}`}>
       {isLoading ? <LayoutSkeleton /> : <LayoutHome />}
+      </div>
     </ThemeProvider>
   )
 }

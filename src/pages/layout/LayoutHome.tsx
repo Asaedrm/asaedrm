@@ -9,22 +9,20 @@ const LayoutHome = () => {
     setSpecialization(specializationSelected)
   }
 
-  useEffect(() => {}, [specialization])
+  useEffect(() => { }, [specialization])
 
   return (
-    <div className="grid grid-cols-12 p-4 h-screen">
+    <div className="grid grid-cols-12 p-4 h-screen bg-black">
+      {/* FRONTEND WRAPPER */}
       <div
-        className={`col-span-6 w-full h-full p-[2px] ${
-          hovered === "frontend"
-            ? "rounded-xl bg-gradient-to-r from-blue-500 to-pink-500"
-            : ""
-        }`}
+        className={`col-span-6 w-full h-full relative transition-all duration-300 ${hovered === "backend" ? "blur-sm" : ""}`}
       >
-        <Card
-          className={`w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white ${
-            hovered === "frontend" ? "text-white" : ""
-          }`}
-        >
+        {/* Fondo de gradiente desenfocado solo cuando se pasa el cursor por frontend */}
+        {hovered === "frontend" && (
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-pink-500 blur-sm z-0" />
+        )}
+
+        <Card className="relative z-10 w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white">
           <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
             Asaed Reyes Medina
           </h3>
@@ -39,18 +37,11 @@ const LayoutHome = () => {
         </Card>
       </div>
 
+      {/* BACKEND WRAPPER */}
       <div
-        className={`col-span-6 ${
-          hovered === "backend"
-            ? "p-[2px] rounded-xl bg-gradient-to-r from-black via-gray-950 to-sky-900"
-            : ""
-        }`}
+        className={`col-span-6 w-full h-full relative transition-all duration-300 ${hovered === "frontend" ? "blur-sm" : ""}`}
       >
-        <Card
-          className={`w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white ${
-            hovered === "backend" ? "text-white bg-gradient-to-r from-black via-gray-950 to-sky-900" : ""
-          }`}
-        >
+        <Card className="relative z-10 w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white">
           <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
             Full Stack Developer
           </h3>
