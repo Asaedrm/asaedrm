@@ -12,7 +12,7 @@ const LayoutHome = () => {
   useEffect(() => { }, [specialization])
 
   return (
-    <div className="grid grid-cols-12 p-4 h-screen bg-black">
+    <div className="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 p-4 h-screen bg-black">
       {/* FRONTEND WRAPPER */}
       <div
         className={`col-span-6 w-full h-full relative transition-all duration-300 ${hovered === "backend" ? "blur-sm" : ""}`}
@@ -30,7 +30,7 @@ const LayoutHome = () => {
             onClick={() => handleSpecialization("frontend")}
             onMouseEnter={() => setHovered("frontend")}
             onMouseLeave={() => setHovered(null)}
-            className="scroll-m-20 text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-transparent hover:bg-clip-text"
+            className="scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-transparent hover:bg-clip-text"
           >
             Frontend
           </h1>
@@ -49,7 +49,7 @@ const LayoutHome = () => {
             onClick={() => handleSpecialization("backend")}
             onMouseEnter={() => setHovered("backend")}
             onMouseLeave={() => setHovered(null)}
-            className="scroll-m-20 text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-4xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 hover:text-transparent hover:bg-clip-text"
+            className="scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 hover:text-transparent hover:bg-clip-text"
           >
             Backend
           </h1>
