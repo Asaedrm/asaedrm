@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card"
 import { useEffect, useState } from "react"
 import clsx from "clsx"
 
+
 const LayoutHome = () => {
   const [specialization, setSpecialization] = useState<string>("")
   const [hovered, setHovered] = useState<"frontend" | "backend" | null>(null)
@@ -39,18 +40,33 @@ const LayoutHome = () => {
           hovered === "backend" && "blur-sm"
         )}
       >
-        {hovered === "frontend" && (
+        {hovered === "frontend" || specialization === "frontend" && (
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-pink-500 blur-sm z-0" />
         )}
         <Card className="relative z-10 w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white">
-          <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
-            Asaed Reyes Medina
-          </h3>
+          {
+            specialization === "frontend" ? (
+              <div className="absolute top-16 left-16 w-full h-full flex flex-row items-start justify-start">
+                <div className="text-lg font-semibold"></div>
+              </div>
+            ) 
+              : (
+                <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
+                  Asaed Reyes Medina
+                </h3>
+              )
+          }
           <h1
             onClick={() => handleSpecialization("frontend")}
             onMouseEnter={() => setHovered("frontend")}
             onMouseLeave={() => setHovered(null)}
-            className="scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-blue-500 hover:to-pink-500 hover:text-transparent hover:bg-clip-text"
+            className={`
+              scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl 
+              lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold 
+              tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r
+            hover:from-blue-500 hover:to-pink-500 hover:text-transparent hover:bg-clip-text
+            ${hovered === "frontend" || specialization === "frontend" ? "bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text" : ""}
+              `}
           >
             Frontend
           </h1>
@@ -68,14 +84,25 @@ const LayoutHome = () => {
         )}
       >
         <Card className="relative z-10 w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white">
-          <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
-            Full Stack Developer
-          </h3>
+          {
+            specialization === "backend" ? null : (
+              <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
+                Full Stack Developer
+              </h3>
+            )
+          }
           <h1
             onClick={() => handleSpecialization("backend")}
             onMouseEnter={() => setHovered("backend")}
             onMouseLeave={() => setHovered(null)}
-            className="scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 hover:text-transparent hover:bg-clip-text"
+            className={`
+              scroll-m-20 border-b-2 md:border-none text-center 
+              xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl 
+              font-extrabold tracking-tight text-balance cursor-pointer 
+              hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 
+              hover:text-transparent hover:bg-clip-text
+              ${hovered === "backend" || specialization === "backend" ? "bg-gradient-to-r from-emerald-800 to-sky-800 text-transparent bg-clip-text" : ""}
+              `}
           >
             Backend
           </h1>
