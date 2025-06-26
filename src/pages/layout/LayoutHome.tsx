@@ -45,11 +45,7 @@ const LayoutHome = () => {
         )}
         <Card className="relative z-10 w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white">
           {
-            specialization === "frontend" ? (
-              <div className="absolute top-16 left-16 w-full h-full flex flex-row items-start justify-start">
-                <div className="text-lg font-semibold"></div>
-              </div>
-            ) 
+            specialization === "frontend" ? null 
               : (
                 <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
                   Asaed Reyes Medina
