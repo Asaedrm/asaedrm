@@ -15,21 +15,19 @@ const SpecializationCard = ({ title, description, tecnologies = "frontend", spec
     return (
         <Card className={`${cardStyles[tecnologies].card}`}>
             {
-                specialization === "frontend" ? null
-                    : (
-                        <h3 className={`${cardStyles[tecnologies].subtitle}`}>
-                            {description}
-                        </h3>
-                    )
+                specialization && (
+                    <h3 className={`${cardStyles[tecnologies].subtitle}`}>
+                        {description}
+                    </h3>
+                )
             }
             <h1
-                onClick={() => handleSpecialization("frontend")}
-                onMouseEnter={() => setHovered("frontend")}
+                onClick={() => handleSpecialization(tecnologies)}
+                onMouseEnter={() => setHovered(tecnologies)}
                 onMouseLeave={() => setHovered(null)}
                 className={` 
                     ${cardStyles[tecnologies].title}
-                    ${hovered === "frontend" || specialization === "frontend" ? cardStyles[tecnologies].titleHover : null}
-                    ${hovered === "backend" || specialization === "backend" ? null : null}
+                    ${hovered || specialization ? cardStyles[tecnologies].titleHover : null}
         `}
             >
                 {title}

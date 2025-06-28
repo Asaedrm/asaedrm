@@ -1,15 +1,16 @@
-import { Card } from "@/components/ui/card"
 import { useEffect, useState } from "react"
+import { LAYOUT_HOME_CONSTS } from "./../constants/LayoutHomeConsts"
+import SpecializationCard from "./../components/SpecializationCard"
 import clsx from "clsx"
 
 
 const LayoutHome = () => {
-  const [specialization, setSpecialization] = useState<string>("")
+  const [specialization, setSpecialization] = useState<"frontend" | "backend" | null>(null)
   const [hovered, setHovered] = useState<"frontend" | "backend" | null>(null)
   const [isFrontendHidden, setIsFrontendHidden] = useState(false)
   const [isBackendHidden, setIsBackendHidden] = useState(false)
 
-  const handleSpecialization = (selected: string) => {
+  const handleSpecialization = (selected: "frontend" | "backend" | null) => {
     setSpecialization(selected)
 
     // Ocultar el opuesto después de la animación
@@ -43,30 +44,8 @@ const LayoutHome = () => {
         {hovered === "frontend" || specialization === "frontend" && (
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-pink-500 blur-sm z-0" />
         )}
-        <Card className="relative z-10 w-full h-full flex flex-col items-center justify-center text-neutral-400 hover:text-white">
-          {
-            specialization === "frontend" ? null 
-              : (
-                <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
-                  Asaed Reyes Medina
-                </h3>
-              )
-          }
-          <h1
-            onClick={() => handleSpecialization("frontend")}
-            onMouseEnter={() => setHovered("frontend")}
-            onMouseLeave={() => setHovered(null)}
-            className={`
-              scroll-m-20 border-b-2 md:border-none text-center xl:text-7xl 
-              lg:text-6xl md:text-5xl sm:text-3xl text-3xl font-extrabold 
-              tracking-tight text-balance cursor-pointer hover:bg-gradient-to-r
-            hover:from-blue-500 hover:to-pink-500 hover:text-transparent hover:bg-clip-text
-            ${hovered === "frontend" || specialization === "frontend" ? "bg-gradient-to-r from-blue-500 to-pink-500 text-transparent bg-clip-text" : ""}
-              `}
-          >
-            Frontend
-          </h1>
-        </Card>
+        <SpecializationCard title={LAYOUT_HOME_CONSTS.frontend.title} description={LAYOUT_HOME_CONSTS.frontend.description}
+          tecnologies="frontend" handleSpecialization={handleSpecialization} setHovered={setHovered} specialization={specialization} hovered={hovered} />
       </div>
 
       {/* BACKEND WRAPPER */}
@@ -79,32 +58,11 @@ const LayoutHome = () => {
           hovered === "frontend" && "blur-sm"
         )}
       >
-        <Card className="relative z-10 w-full h-full bg-transparent border-none flex flex-col items-center justify-center text-neutral-400 hover:text-white">
-          {
-            specialization === "backend" ? null : (
-              <h3 className="scroll-m-20 xl:text-2xl lg:text-xl md:text-lg sm:text-base font-semibold tracking-tight">
-                Full Stack Developer
-              </h3>
-            )
-          }
-          <h1
-            onClick={() => handleSpecialization("backend")}
-            onMouseEnter={() => setHovered("backend")}
-            onMouseLeave={() => setHovered(null)}
-            className={`
-              scroll-m-20 border-b-2 md:border-none text-center 
-              xl:text-7xl lg:text-6xl md:text-5xl sm:text-3xl text-3xl 
-              font-extrabold tracking-tight text-balance cursor-pointer 
-              hover:bg-gradient-to-r hover:from-emerald-800 hover:to-sky-800 
-              hover:text-transparent hover:bg-clip-text
-              ${hovered === "backend" || specialization === "backend" ? "bg-gradient-to-r from-emerald-800 to-sky-800 text-transparent bg-clip-text" : ""}
-              `}
-          >
-            Backend
-          </h1>
-        </Card>
+        <SpecializationCard title={LAYOUT_HOME_CONSTS.backend.title} description={LAYOUT_HOME_CONSTS.backend.description}
+          tecnologies="backend" handleSpecialization={handleSpecialization} setHovered={setHovered} specialization={specialization} hovered={hovered} />
+
       </div>
-    </div>
+    </div >
   )
 }
 
