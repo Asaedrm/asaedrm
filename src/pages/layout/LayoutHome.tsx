@@ -1,34 +1,11 @@
-import { useEffect, useState } from "react"
 import { LAYOUT_HOME_CONSTS } from "./../constants/LayoutHomeConsts"
 import SpecializationCard from "./../components/SpecializationCard"
 import clsx from "clsx"
+import useLayoutHome from "../hooks/useLayoutHome"
 
 
 const LayoutHome = () => {
-  const [specialization, setSpecialization] = useState<"frontend" | "backend" | null>(null)
-  const [hovered, setHovered] = useState<"frontend" | "backend" | null>(null)
-  const [isFrontendHidden, setIsFrontendHidden] = useState(false)
-  const [isBackendHidden, setIsBackendHidden] = useState(false)
-
-  const handleSpecialization = (selected: "frontend" | "backend" | null) => {
-    setSpecialization(selected)
-
-    // Ocultar el opuesto después de la animación
-    if (selected === "frontend") {
-      setTimeout(() => setIsBackendHidden(true), 500)
-    } else {
-      setTimeout(() => setIsFrontendHidden(true), 500)
-    }
-  }
-
-  // Mostrar de nuevo si no hay selección (opcional)
-  useEffect(() => {
-    if (!specialization) {
-      setIsFrontendHidden(false)
-      setIsBackendHidden(false)
-    }
-  }, [specialization])
-
+  const { isBackendHidden, isFrontendHidden, specialization, handleSpecialization, hovered, setHovered } = useLayoutHome()
   return (
     <div className="grid grid-cols-1 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 2xl:grid-cols-12 p-4 h-screen bg-black">
       {/* FRONTEND WRAPPER */}
