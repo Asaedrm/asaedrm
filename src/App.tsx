@@ -2,7 +2,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import LayoutHome from "./pages/layout/LayoutHome"
 import { useEffect, useState } from "react"
 import LayoutSkeleton from "./pages/components/LayoutSkeleton"
-import SkillCard from "./pages/components/SkillCard"
 import { CommandMenu } from "./pages/components/CommandSearch"
 
 function App() {
