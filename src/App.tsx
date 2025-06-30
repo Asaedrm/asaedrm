@@ -2,6 +2,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 import LayoutHome from "./pages/layout/LayoutHome"
 import { useEffect, useState } from "react"
 import LayoutSkeleton from "./pages/components/LayoutSkeleton"
+import SkillCard from "./pages/components/SkillCard"
+import { CommandMenu } from "./pages/components/CommandSearch"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -14,7 +16,8 @@ function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className={`${isLoading ? "cursor-progress" : "cursor-default"}`}>
-      {isLoading ? <LayoutSkeleton /> : <LayoutHome />}
+        <CommandMenu />
+        {isLoading ? <LayoutSkeleton /> : <LayoutHome />}
       </div>
     </ThemeProvider>
   )

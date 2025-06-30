@@ -13,6 +13,6 @@ export const LAYOUT_HOME_CONSTS: LayoutHomeConstsProps = {
   },
   backend: {
     title: "Backend",
-    description: "Full Stack Developer",
+    description: "IT engineer",
   },
 }
