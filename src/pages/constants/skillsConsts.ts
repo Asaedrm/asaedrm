@@ -4,7 +4,7 @@ export interface SkillsConsts {
   backend: specializationSkills[]
 }
 export interface specializationSkills {
-  title: string
+  title: "React" | "Angular" | "Bun" | "NodeJS" | "NestJS"
   description: string
   experience: string
   projects: skillsProyects[]
@@ -53,22 +53,6 @@ export const SKILLS_CONSTS: SkillsConsts = {
       subSkills: ["NgRx", "Angular Material", "Ionic", "Angular Universal"],
       yearsOfExperience: 2
     },
-    {
-      title: "Bun",
-      description: "Bun is a modern JavaScript runtime like Node or Deno.",
-      experience: "Beginner",
-      projects: [
-        {
-          title: "Bun CLI Tool",
-          description: "A command-line tool built with Bun.",
-          link: "https://example.com/bun-cli-tool",
-          image: "https://example.com/bun-cli-tool-image.png",
-          skills: ["Bun", "JavaScript"]
-        }
-      ],
-      subSkills: ["Bun Runtime", "Bun CLI"],
-      yearsOfExperience: 1
-    }
   ],
   backend: [
     {
