@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card"
 import { cardStyles } from "./../styles/cardStyles.ts"
-import SkillCard from "./SkillCard.tsx"
 
 export interface SpecializationCardProps {
     title: string
@@ -10,17 +9,14 @@ export interface SpecializationCardProps {
     handleSpecialization: (specialization: "frontend" | "backend") => void
     hovered: "frontend" | "backend" | null
     setHovered: (hovered: "frontend" | "backend" | null) => void
+    setOpen: (open: boolean) => void
 }
 
 const SpecializationCard = (
-    { title, description, tecnologies = "frontend", specialization, handleSpecialization, hovered, setHovered }
+    { title, description, setOpen, tecnologies = "frontend", specialization, handleSpecialization, hovered, setHovered }
         : SpecializationCardProps) => {
     return (
         <Card className={`${cardStyles[tecnologies].card}`}>
-            {
-                tecnologies === "frontend" && specialization === "frontend" &&
-                <div className="absolute  top-50 left-50 "><SkillCard skillTitle="React" /></div>
-            }
             {
                 tecnologies === "backend" && <div className="hidden  md:flex flex-row ring-white absolute top-4 right-4 rounded-xl gap-4">
                     <small className="text-sm text-white leading-none font-medium flex flex-row items-center  p-2 rounded-md bg-neutral-700">Search
@@ -32,20 +28,16 @@ const SpecializationCard = (
                 {description}
             </h3>
             <h1
-                onClick={() => handleSpecialization(tecnologies)}
+                onClick={() => { handleSpecialization(tecnologies); setOpen(true) }}
                 onMouseEnter={() => setHovered(tecnologies)}
                 onMouseLeave={() => setHovered(null)}
                 className={` 
                     ${cardStyles[tecnologies].title}
-                    ${hovered || specialization ? cardStyles[tecnologies].titleHover : null}
+                    ${hovered || specialization === tecnologies ? cardStyles[tecnologies].titleHover : null}
         `}
             >
                 {title}
             </h1>
-            {
-                tecnologies === "frontend" && specialization === "frontend" &&
-                <div className="absolute  bottom-50 right-50 "><SkillCard skillTitle="Angular" /></div>
-            }
         </Card >
     )
 }

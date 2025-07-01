@@ -4,15 +4,14 @@ export interface DrawerSkillsProps {
   skillTitle: skills;
 }
 
-import * as React from "react"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog"
 import {
   Drawer,
@@ -25,24 +24,42 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import useMediaQuery from "../hooks/useMediaQuery";
-export function DrawerDialogDemo() {
-  const [open, setOpen] = React.useState(false)
+import { SKILLS_CONSTS } from "../constants/skillsConsts";
+import { Badge } from "@/components/ui/badge";
+export interface DrawerDialogDemoProps {
+  specializationSelected: "frontend" | "backend";
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}
+export function DrawerSkills({ open, setOpen, specializationSelected }: DrawerDialogDemoProps) {
+
   const isDesktop = useMediaQuery("(min-width: 768px)")
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <Button variant="outline">Edit Profile</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="sm:max-w-6/12 sm:h-10/12">
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle><div className="scroll-m-20 text-3xl font-semibold tracking-tight">{specializationSelected && SKILLS_CONSTS[specializationSelected][0].title}</div></DialogTitle>
             <DialogDescription>
-              Make changes to your profile here. Click save when you&apos;re
-              done.
+              <div className="mb-2 scroll-m-20 text-xl font-semibold tracking-tight">{specializationSelected && SKILLS_CONSTS[specializationSelected][0].description}</div>
+              <div className="flex mt-2 flex-row gap-2">
+                {
+                  specializationSelected && SKILLS_CONSTS[specializationSelected][0].subSkills.map((skill, index) => (
+                    <Badge key={index} variant="secondary" >
+                      {skill}
+                    </Badge>
+                  ))
+                }
+              </div>
             </DialogDescription>
           </DialogHeader>
+          <div>
+
+          </div>
         </DialogContent>
+        <DialogFooter className="flex flex-row justify-center items-center gap-2">
+
+        </DialogFooter>
       </Dialog>
     )
   }
