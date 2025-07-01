@@ -38,7 +38,11 @@ const LayoutHome = () => {
 
         </div>
       </div >
-      <DrawerSkills open={open} setOpen={setOpen} specializationSelected={specialization} />
+      <DrawerSkills
+        open={open}
+        setOpen={setOpen}
+        specializationSelected={specialization ?? "frontend"}
+      />
     </>
   )
 }
