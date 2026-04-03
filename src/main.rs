@@ -161,7 +161,6 @@ fn App() -> impl IntoView {
     }
 }
 
-#[cfg(not(target_arch = "wasm32"))]
 fn main() {
     mount_to_body(App);
 }
