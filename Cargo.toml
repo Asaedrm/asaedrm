@@ -3,14 +3,26 @@ name = "asaedrm"
 version = "0.1.0"
 edition = "2024"
 
+[[bin]]
+name = "asaedrm"
+path = "src/main.rs"
+required-features = ["ssr"] # Esto hará que solo se intente compilar como binario si usas SSR
+# --- AÑADE ESTO ---
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/main.rs" # Añade esta línea indicando dónde está tu código
+# ------------------
+
 [dependencies]
 leptos = { version = "0.8.17", features = ["csr"] }
-[package.metadata.leptos]
-# Archivo final que Leptos inyectará en el HTML
-style-file = "style/output.css"
 
-# Comando para ejecutar el nuevo CLI de Tailwind v4
-# Nota: v4 es increíblemente rápido comparado con v3
+[package.metadata.leptos]
+# Asegúrate de que estos nombres coincidan con lo que tienes
+output-name = "asaedrm"
+site-root = "site"
+site-pkg-dir = "pkg"
+style-file = "style/output.css"
 tailwind-input-file = "style/input.css"
-# Ya no es estrictamente necesario si usas el CLI nuevo,
-# pero puedes dejarlo vacío o apuntar al CSS.
+site-addr = "0.0.0.0:3000"
+reload-port = 3001
+assets-dir = "public"
