@@ -1,32 +1,25 @@
 # Etapa 1: Construcción
-FROM rust:1.75-slim as builder
+FROM rust:1.75-slim AS builder
 
-# Instalar dependencias necesarias para compilar Wasm y Leptos
-RUN apt-get update && apt-get install -y pkg-config libssl-dev Node.js npm binaryen
+# Instalamos lo mínimo necesario
+RUN apt-get update && apt-get install -y pkg-config libssl-dev binaryen curl
 RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked cargo-leptos
 
 WORKDIR /app
 COPY . .
 
-# Compilar en modo release
-RUN cargo leptos build --release -v
+# Compilamos el proyecto (esto genera la carpeta /target/site)
+RUN cargo leptos build --release
 
-# Etapa 2: Runtime (Imagen final ligera)
-FROM debian:bookworm-slim
-WORKDIR /app
+# Etapa 2: Servidor Web ligero (Nginx)
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
 
-# Copiar el binario y los archivos estáticos desde el builder
-# Ajusta 'asaedrm' al nombre de tu proyecto en Cargo.toml
-COPY --from=builder /app/target/release/asaedrm /app/
-COPY --from=builder /app/target/site /app/site
+# Copiamos los archivos estáticos generados al directorio de Nginx
+COPY --from=builder /app/target/site /usr/share/nginx/html
 
-# Configurar variables de entorno para Leptos
-ENV LEPTOS_SITE_ROOT=/app/site
-ENV LEPTOS_SITE_ADDR=0.0.0.0:3000
-ENV LEPTOS_OUTPUT_NAME=asaedrm
+# Exponemos el puerto estándar de Nginx
+EXPOSE 80
 
-EXPOSE 3000
-
-# Ejecutar el binario
-CMD ["./asaedrm"]
+CMD ["nginx", "-g", "daemon off;"]
