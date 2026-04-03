@@ -1,0 +1,16 @@
+[package]
+name = "asaedrm"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+leptos = { version = "0.8.17", features = ["csr"] }
+[package.metadata.leptos]
+# Archivo final que Leptos inyectará en el HTML
+style-file = "style/output.css"
+
+# Comando para ejecutar el nuevo CLI de Tailwind v4
+# Nota: v4 es increíblemente rápido comparado con v3
+tailwind-input-file = "style/input.css"
+# Ya no es estrictamente necesario si usas el CLI nuevo,
+# pero puedes dejarlo vacío o apuntar al CSS.
