@@ -1,5 +1,5 @@
 # Etapa 1: Construcción
-FROM rust:1.82-slim AS builder
+FROM rust:1.82-bookworm AS builder
 
 # Instalamos lo mínimo necesario
 RUN apt-get update && apt-get install -y pkg-config libssl-dev binaryen curl
