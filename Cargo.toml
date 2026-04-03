@@ -1,7 +1,7 @@
 [package]
 name = "asaedrm"
 version = "0.1.0"
-edition = "2024"
+edition = "2021" # Cambia 2024 por 2021
 
 [[bin]]
 name = "asaedrm"
