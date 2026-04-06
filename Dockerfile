@@ -8,13 +8,13 @@ RUN rustup target add wasm32-unknown-unknown
 RUN cargo install --locked trunk
 
 # Instalamos la versión específica que NO pide Rust 2024
-RUN cargo install --locked wasm-bindgen-cli --version 0.2.100
+RUN cargo install --locked wasm-bindgen-cli
 
 WORKDIR /app
 COPY . .
 
 # Obligamos al código a usar la misma versión .100
-RUN cargo update -p wasm-bindgen --precise 0.2.100
+RUN cargo update -p wasm-bindgen
 
 # Build final
 RUN trunk build --release
