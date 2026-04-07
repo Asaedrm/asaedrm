@@ -5,6 +5,8 @@ edition = "2024"
 
 [dependencies]
 leptos = { version = "0.8.17", features = ["csr"] }
+web-sys = "0.3.94"
+wasm-bindgen = "0.2.117"
 [package.metadata.leptos]
 # Archivo final que Leptos inyectará en el HTML
 style-file = "style/output.css"
