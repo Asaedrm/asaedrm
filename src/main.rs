@@ -82,6 +82,7 @@ fn App() -> impl IntoView {
                     </div>
                 </div>
 
+
                 // --- COLUMNA DERECHA: EXPERIENCIA REAL (KUBO) ---
                 <div class="lg:col-span-6 bg-base-300/30 rounded-[2rem] lg:rounded-[3rem] p-6 lg:p-10 border border-white/5 shadow-2xl flex flex-col h-full overflow-hidden">
                     <div class="mb-6 lg:mb-8">
