@@ -1,35 +1,47 @@
-# Etapa 1: Construcción - Rust 1.85 es perfecto para Edition 2024
-FROM rust:1.85-bookworm AS builder
+# -- Etapa de construcción (Build Stage) --
+FROM rust:latest as builder
 
-# Instalamos dependencias del sistema
-RUN apt-get update && apt-get install -y pkg-config libssl-dev binaryen curl
+# Instalar dependencias necesarias para Trunk y WASM
 RUN rustup target add wasm32-unknown-unknown
-
-# Instalamos Trunk
 RUN cargo install --locked trunk
 
-# INSTALACIÓN CLAVE:
-# Forzamos la 0.2.99. Esta versión ya entiende la Edition 2024 pero NO pide Rust 1.88.
-RUN cargo install --locked wasm-bindgen-cli --version 0.2.99
+# Instalar Node.js para Tailwind CSS v4
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
-WORKDIR /app
+# Establecer el directorio de trabajo
+WORKDIR /usr/src/app
+
+# Copiar archivos de dependencias de Node
+COPY package*.json ./
+RUN npm install
+
+# Copiar el resto del código
 COPY . .
 
-# Sincronizamos las dependencias del proyecto con la versión estable
-RUN cargo update -p wasm-bindgen --precise 0.2.99
+# Compilar el CSS (Tailwind v4 CLI)
+RUN npx @tailwindcss/cli -i ./style/input.css -o ./style/output.css
 
-# Build final usando Trunk
+# Construir la aplicación con Trunk en modo release
 RUN trunk build --release
 
-# Etapa 2: Servidor Nginx ligero
+# -- Etapa de ejecución (Runtime Stage) --
 FROM nginx:alpine
-WORKDIR /usr/share/nginx/html
 
-# Copiamos desde la carpeta dist
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Copiar los archivos estáticos generados por Trunk al servidor Nginx
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
-# Fix para rutas SPA (Leptos)
-RUN sed -i 's/index.html index.htm;/index.html index.htm; try_files $uri $uri\/ \/index.html;/' /etc/nginx/conf.d/default.conf
+# Configuración básica para manejar Single Page Applications (SPA)
+RUN echo "server { \
+    listen 80; \
+    location / { \
+        root /usr/share/nginx/html; \
+        index index.html index.htm; \
+        try_files \$uri \$uri/ /index.html; \
+    } \
+}" > /etc/nginx/conf.d/default.conf
 
+# Exponer el puerto 80
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
