@@ -18,9 +18,9 @@ fn SkillBadge(
 #[component]
 fn App() -> impl IntoView {
     view! {
-        <div class="min-h-screen lg:h-screen lg:overflow-hidden bg-base-100 text-base-content font-mono p-6 lg:p-12 flex items-center justify-center">
-            <style>
-                ".icon-react { color: #61DAFB; border-color: #61DAFB; }
+            <div class="min-h-screen lg:h-screen lg:overflow-hidden bg-base-100 text-base-content font-mono p-6 lg:p-12 flex items-center justify-center">
+                <style>
+                    ".icon-react { color: #61DAFB; border-color: #61DAFB; }
                  .icon-next { color: #ffffff; border-color: #444444; }
                  .icon-ts { color: #3178C6; border-color: #3178C6; }
                  .icon-tail { color: #06B6D4; border-color: #06B6D4; }
@@ -29,155 +29,155 @@ fn App() -> impl IntoView {
                  .icon-aws { color: #FF9900; border-color: #FF9900; }
                  .icon-git { color: #F05032; border-color: #F05032; }
                  .badge-node { background-color: #1a1a1a; border-color: #339933; color: #339933; }"
-            </style>
+                </style>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 max-w-7xl w-full h-full lg:max-h-[90vh]">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 max-w-7xl w-full h-full lg:max-h-[90vh]">
 
-                // --- COLUMNA IZQUIERDA: BIO & SKILLS ---
-                <div class="lg:col-span-6 flex flex-col justify-start gap-10">
-                    <div class="space-y-6">
-                        <h1 class="text-7xl lg:text-7xl font-black tracking-tighter text-primary leading-none">
-                           " Asaed  Reyes"
-                        </h1>
+                    // --- COLUMNA IZQUIERDA: BIO & SKILLS ---
+                    <div class="lg:col-span-6 flex flex-col justify-start gap-10">
+                        <div class="space-y-6">
+                            <h1 class="text-7xl lg:text-7xl font-black tracking-tighter text-primary leading-none">
+                               " Asaed  Reyes"
+                            </h1>
 
-                        <div class="flex flex-col lg:flex-row lg:items-center gap-4">
-                            <h3 class="text-3xl lg:text-xl text-neutral-500 font-bold uppercase tracking-widest">
-                                Senior Frontend Engineer
-                            </h3>
-                            <div class="badge badge-accent badge-lg gap-2 p-6 lg:p-3 text-xl lg:text-[10px] font-black animate-pulse w-fit">
-                              <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-content opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-content"></span>
-                              </span>
-                              DISPONIBLE PARA NUEVOS RETOS
+                            <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+                                <h3 class="text-3xl lg:text-xl text-neutral-500 font-bold uppercase tracking-widest">
+                                    Senior Frontend Engineer
+                                </h3>
+                                <div class="badge badge-accent badge-lg gap-2 p-6 lg:p-3 text-xl lg:text-[10px] font-black animate-pulse w-fit">
+                                  <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-content opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-content"></span>
+                                  </span>
+                                  DISPONIBLE PARA NUEVOS RETOS
+                                </div>
                             </div>
+
+                            <div class="divider lg:my-2"></div>
+
+                            <p class="text-3xl lg:text-lg leading-relaxed font-medium max-w-prose">
+                               " Ingeniero con +4 años de experiencia liderando arquitecturas  Microfrontend. Especializado en escalar productos financieros mediante librerías de componentes core y optimización de flujos críticos."
+                            </p>
                         </div>
 
-                        <div class="divider lg:my-2"></div>
-
-                        <p class="text-3xl lg:text-lg leading-relaxed font-medium max-w-prose">
-                           " Ingeniero con +4 años de experiencia liderando arquitecturas  Microfrontend. Especializado en escalar productos financieros mediante librerías de componentes core y optimización de flujos críticos."
-                        </p>
-                    </div>
-
-                    // STACK TÉCNICO
-                    <div class="space-y-8 lg:space-y-6">
-                        <div>
-                            <h2 class="text-3xl lg:text-xs font-black mb-6 lg:mb-3 opacity-70 uppercase tracking-widest flex items-center gap-4">
-                                <span class="w-12 h-1 bg-primary"></span> Frontend & Lead
-                            </h2>
-                            <div class="flex flex-wrap gap-4 lg:gap-2">
-                                <SkillBadge icon_class="devicon-react-original" name="React" color_class="icon-react" />
-                                <SkillBadge icon_class="devicon-nextjs-plain" name="Next.js" color_class="icon-next" />
-                                <SkillBadge icon_class="devicon-typescript-plain" name="TS" color_class="icon-ts" />
-                                <SkillBadge icon_class="devicon-tailwindcss-original" name="Tailwind" color_class="icon-tail" />
-                                <SkillBadge icon_class="devicon-rust-original" name="Leptos" color_class="icon-rust" />
-                                <button class="btn btn-outline p-7 lg:p-4 text-2xl lg:text-[11px] font-black border-2 border-neutral-content/30 text-neutral-content/70 h-auto min-h-0 uppercase tracking-tighter">
-                                    Module Federation
-                                </button>
+                        // STACK TÉCNICO
+                        <div class="space-y-8 lg:space-y-6">
+                            <div>
+                                <h2 class="text-3xl lg:text-xs font-black mb-6 lg:mb-3 opacity-70 uppercase tracking-widest flex items-center gap-4">
+                                    <span class="w-12 h-1 bg-primary"></span> Frontend & Lead
+                                </h2>
+                                <div class="flex flex-wrap gap-4 lg:gap-2">
+                                    <SkillBadge icon_class="devicon-react-original" name="React" color_class="icon-react" />
+                                    <SkillBadge icon_class="devicon-nextjs-plain" name="Next.js" color_class="icon-next" />
+                                    <SkillBadge icon_class="devicon-typescript-plain" name="TS" color_class="icon-ts" />
+                                    <SkillBadge icon_class="devicon-tailwindcss-original" name="Tailwind" color_class="icon-tail" />
+                                    <SkillBadge icon_class="devicon-rust-original" name="Leptos" color_class="icon-rust" />
+                                    <button class="btn btn-outline p-7 lg:p-4 text-2xl lg:text-[11px] font-black border-2 border-neutral-content/30 text-neutral-content/70 h-auto min-h-0 uppercase tracking-tighter">
+                                        Module Federation
+                                    </button>
+                                </div>
                             </div>
-                        </div>
 
-                        <div>
-                            <h2 class="text-3xl lg:text-xs font-black mb-6 lg:mb-3 opacity-70 uppercase tracking-widest flex items-center gap-4">
-                                <span class="w-12 h-1 bg-secondary"></span> Backend & Cloud
-                            </h2>
-                            <div class="flex flex-wrap gap-4 lg:gap-2">
-                                <SkillBadge icon_class="devicon-nestjs-original" name="NestJS" color_class="icon-nest" />
-                                <SkillBadge icon_class="devicon-amazonwebservices-plain-wordmark" name="AWS" color_class="icon-aws" />
-                                <SkillBadge icon_class="devicon-git-plain" name="Git" color_class="icon-git" />
-                                <button class="btn badge-node p-7 lg:p-4 text-2xl lg:text-[11px] font-black border-2 gap-3 hover:scale-105 transition-all h-auto min-h-0 uppercase tracking-tighter">
-                                    <i class="devicon-nodejs-plain colored text-3xl lg:text-base"></i> Node.js
-                                </button>
+                            <div>
+                                <h2 class="text-3xl lg:text-xs font-black mb-6 lg:mb-3 opacity-70 uppercase tracking-widest flex items-center gap-4">
+                                    <span class="w-12 h-1 bg-secondary"></span> Backend & Cloud
+                                </h2>
+                                <div class="flex flex-wrap gap-4 lg:gap-2">
+                                    <SkillBadge icon_class="devicon-nestjs-original" name="NestJS" color_class="icon-nest" />
+                                    <SkillBadge icon_class="devicon-amazonwebservices-plain-wordmark" name="AWS" color_class="icon-aws" />
+                                    <SkillBadge icon_class="devicon-git-plain" name="Git" color_class="icon-git" />
+                                    <button class="btn badge-node p-7 lg:p-4 text-2xl lg:text-[11px] font-black border-2 gap-3 hover:scale-105 transition-all h-auto min-h-0 uppercase tracking-tighter">
+                                        <i class="devicon-nodejs-plain colored text-3xl lg:text-base"></i> Node.js
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                // --- COLUMNA DERECHA: EXPERIENCIA REAL (KUBO) ---
-                <div class="lg:col-span-6 bg-base-300/30 rounded-[3rem] p-8 lg:p-10 border border-white/5 shadow-2xl flex flex-col h-full overflow-hidden">
-                    <div class="mb-8">
-                        <h2 class="text-4xl lg:text-2xl font-black italic underline decoration-secondary decoration-8 mb-4 uppercase">EXPERIENCIA_</h2>
-                        <div class="flex items-center gap-3">
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-success"></span>
-                            <p class="text-2xl lg:text-sm font-bold text-secondary uppercase tracking-widest">Kubo Financiero | 2022 - Actualidad</p>
                         </div>
                     </div>
 
-                    // Lista con scroll interno solo si es necesario en laptops pequeñas
-                    <ul class="list p-0 space-y-10 lg:space-y-6 overflow-y-auto pr-2 custom-scroll">
-                        <li class="list-row p-0 border-none items-start gap-6">
-                            <div class="text-secondary text-4xl lg:text-lg font-bold italic">01</div>
-                            <div class="space-y-2">
-                                <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Core UI & Microfrontends</div>
-                                <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
-                                  "  Liderazgo técnico de librería de componentes (React + Tailwind) distribuida vía Module Federation para unificar el branding corporativo."
-                                </div>
+                    // --- COLUMNA DERECHA: EXPERIENCIA REAL (KUBO) ---
+                    <div class="lg:col-span-6 bg-base-300/30 rounded-[3rem] p-8 lg:p-10 border border-white/5 shadow-2xl flex flex-col h-full overflow-hidden">
+                        <div class="mb-8">
+                            <h2 class="text-4xl lg:text-2xl font-black italic underline decoration-secondary decoration-8 mb-4 uppercase">EXPERIENCIA_</h2>
+                            <div class="flex items-center gap-3">
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-success"></span>
+                                <p class="text-2xl lg:text-sm font-bold text-secondary uppercase tracking-widest">Kubo Financiero | 2022 - Actualidad</p>
                             </div>
-                        </li>
+                        </div>
 
-                        <li class="list-row p-0 border-none items-start gap-6">
-                            <div class="text-secondary text-4xl lg:text-lg font-bold italic">02</div>
-                            <div class="space-y-2">
-                                <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Portal Público & Gestión</div>
-                                <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
-                                    "Migración de servicios clave (Inversiones, Créditos, Transferencias) a arquitectura microfrontend y reemplazo de sistemas legacy de gestión de cartera."
+                        // Lista con scroll interno solo si es necesario en laptops pequeñas
+                        <ul class="list p-0 space-y-10 lg:space-y-6 overflow-y-auto pr-2 custom-scroll">
+                            <li class="list-row p-0 border-none items-start gap-6">
+                                <div class="text-secondary text-4xl lg:text-lg font-bold italic">01</div>
+                                <div class="space-y-2">
+                                    <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Core UI & Microfrontends</div>
+                                    <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
+                                      "  Liderazgo técnico de librería de componentes (React + Tailwind) distribuida vía Module Federation para unificar el branding corporativo."
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="list-row p-0 border-none items-start gap-6">
-                            <div class="text-secondary text-4xl lg:text-lg font-bold italic">03</div>
-                            <div class="space-y-2">
-                                <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Product Growth & UX</div>
-                                <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
-                                    "Implementación de Onboarding multistep con validación en tiempo real, aumentando la retención y reduciendo un 20% el tiempo de desembolso."
+                            <li class="list-row p-0 border-none items-start gap-6">
+                                <div class="text-secondary text-4xl lg:text-lg font-bold italic">02</div>
+                                <div class="space-y-2">
+                                    <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Portal Público & Gestión</div>
+                                    <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
+                                        "Migración de servicios clave (Inversiones, Créditos, Transferencias) a arquitectura microfrontend y reemplazo de sistemas legacy de gestión de cartera."
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
 
-                        <li class="list-row p-0 border-none items-start gap-6">
-                            <div class="text-secondary text-4xl lg:text-lg font-bold italic">04</div>
-                            <div class="space-y-2">
-                                <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Cloud & Backend</div>
-                                <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
-                                    "Desarrollo de API REST en NestJS para operaciones CRUD en AWS S3 y automatización de despliegues con CI/CD en AWS Amplify."
+                            <li class="list-row p-0 border-none items-start gap-6">
+                                <div class="text-secondary text-4xl lg:text-lg font-bold italic">03</div>
+                                <div class="space-y-2">
+                                    <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Product Growth & UX</div>
+                                    <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
+                                        "Implementación de Onboarding multistep con validación en tiempo real, aumentando la retención y reduciendo un 20% el tiempo de desembolso."
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
 
-                  // --- FOOTER DE CONTACTO MINIMALISTA ---
-                     <div class="mt-auto pt-8">
-                        <div class="flex flex-row items-center gap-6 w-full">
+                            <li class="list-row p-0 border-none items-start gap-6">
+                                <div class="text-secondary text-4xl lg:text-lg font-bold italic">04</div>
+                                <div class="space-y-2">
+                                    <div class="text-3xl lg:text-base font-black uppercase tracking-tighter text-primary">Cloud & Backend</div>
+                                    <div class="text-2xl lg:text-sm opacity-75 font-medium leading-relaxed">
+                                        "Desarrollo de API REST en NestJS para operaciones CRUD en AWS S3 y automatización de despliegues con CI/CD en AWS Amplify."
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
 
-                    // Botón Contactar - Mantiene el estilo principal
-                        <a href="mailto:asaedreyesmedina@gmail.com"
-                            class="btn btn-primary rounded-2xl flex-grow h-14 text-sm font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] transition-transform">
-                                <i class="devicon-google-plain text-xl"></i>
-                                    <span>"Contactar"</span>
-                        </a>
+                      // --- FOOTER DE CONTACTO MINIMALISTA ---
+                         <div class="mt-auto pt-8">
+                            <div class="flex flex-row items-center gap-6 w-full">
 
-                    // LinkedIn - Solo Icono
-                        <a href="https://www.linkedin.com/in/asaed-reyes-medina/"
-                            target="_blank"
-                            class="text-[#0077B5] hover:text-[#0077B5]/80 hover:scale-110 transition-all duration-300">
-                                <i class="devicon-linkedin-plain text-4xl"></i>
-                        </a>
+                        // Botón Contactar - Mantiene el estilo principal
+                            <a href="mailto:asaedreyesmedina@gmail.com"
+                                class="btn btn-primary rounded-2xl flex-grow h-14 text-sm font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg hover:scale-[1.02] transition-transform">
+                                    <i class="devicon-google-plain text-xl"></i>
+                                        <span>"Contactar"</span>
+                            </a>
 
-                    // GitHub - Solo Icono
-                        <a href="https://github.com/Asaedrm"
-                            target="_blank"
-                            class="text-white hover:text-white/80 hover:scale-110 transition-all duration-300">
-                                <i class="devicon-github-original text-4xl"></i>
-                        </a>
+                        // LinkedIn - Solo Icono
+                            <a href="https://www.linkedin.com/in/asaed-reyes-medina/"
+                                target="_blank"
+                                class="text-[#0077B5] hover:text-[#0077B5]/80 hover:scale-110 transition-all duration-300">
+               <i class="devicon-linkedin-plain text-4xl"></i>
+            </a>
 
+            // GitHub - Solo Icono
+            <a href="https://github.com/Asaedrm"
+               target="_blank"
+               class="text-white hover:text-white/80 hover:scale-110 transition-all duration-300">
+               <i class="devicon-github-original text-4xl"></i>
+            </a>
+
+        </div>
+    </div>
                     </div>
-                </div>
                 </div>
             </div>
-        </div>
-    }
+        }
 }
 
 fn main() {
